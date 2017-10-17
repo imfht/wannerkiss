@@ -17,7 +17,6 @@
 
 
 <div class="container">
-
     <!-- Static navbar -->
     <nav class="navbar navbar-default">
         <div class="container-fluid">
@@ -41,10 +40,8 @@
         </div><!--/.container-fluid -->
     </nav>
     <div style="text-align: center;">
-
         <!-- Add your site or application content here -->
         <div>
-
             <ul class="newsticker" style="height: 22px; overflow: hidden;">
                 {% for i in infos %}
                     <li style="margin-top: 0px; list-style: none;">{{ i }}</li>
@@ -54,17 +51,34 @@
     </div>
 
     <!-- Main component for a primary marketing message or call to action -->
-
-    {% for i in links %}
-        <div class="col-xs-6 col-lg-4">
-
+    <div class="col-xs-6 col-lg-12" style="margin-top:8px">
+        <form class="form-group" action="/" method="post">
+            <div class="form-group row">
+                <div class="col-6">
+                    <input class="form-control" type="text" id="example-text-input" name="title"
+                           required>
+                </div>
+            </div>
+            <div class="form-group row">
+                {#                <label for="example-search-input" class="col-2 col-form-label">Text</label>#}
+                <div class="col-6">
+                    <input class="form-control" type="search" value="" id="example-search-input" name="text" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-6">
+                    <input class="form-control" type="submit" value="Submit" id="example-search-input">
+                </div>
+            </div>
+        </form>
+    </div>
+    {% for i in others %}
+        <div class="col-xs-6 col-lg-12" style="margin-top:8px">
             <li class="list-group-item"><a href="{{ i.href }}">{{ i.title }}</a>
-                <p>“ {{ i.info }}” </p></li>
-
+                <p>“ {{ i.text }}” </p></li>
         </div>
     {% endfor %}
-
-</div> <!-- /container -->
+</div>
 
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
